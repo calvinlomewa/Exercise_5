@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Exercise 5: Color Picker</title>
+    
+    <style>
+        #container{
+            position: absolute;
+            margin: 30px;
+            background-color: bisque;
+            padding: 20px;
+            height: 250px;
+            width: 450px;
+        }
+        
+        #redCont{
+            padding: 10px;
+            border: 1px solid white;
+            width: 60px;
+            text-align: center;
+            position: absolute;
+        }
+        
+        #greenCont{
+            padding: 10px;
+            margin-left: 90px;
+            border: 1px solid white;
+            width: 60px;
+            text-align: center;
+            position: absolute;
+        }
+        
+        #blueCont{
+            padding: 10px;
+            margin-left: 180px;
+            border: 1px solid white;
+            width: 60px;
+            text-align: center;
+            position: absolute;
+        }
+        
+        #redBox{
+            width: 50px;
+        }
+        
+        #blueBox{
+            width: 50px;
+        }
+        
+        #greenBox{
+            width: 50px;
+        }
+        
+        button{
+            position: absolute;
+        }
+        
+        #showColor{
+            margin-left: 270px;
+        }
+        
+        #clearBtn{
+            margin-left: 270px;
+            margin-top: 30px;
+        }
+        
+        #colorCont{
+            margin-top: 100px;
+        }
+        
+        #colorBox{
+            width: 400px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h4>CSS Color Displayer</h4>
+        <p>Select a number from 0 to 255 for each color value:</p>
+        <div id="redCont">
+            Red: <br />
+            <input type="text" id="redBox" value="0">
+        </div>
+        <div id="greenCont">
+            Green: <br />
+            <input type="text" id="greenBox" value="0">
+        </div>
+        <div id="blueCont">
+            Blue: <br />
+            <input type="text" id="blueBox" value="0">
+        </div>
+        <button id="showColor">Show me the color!</button>
+        <button id="clearBtn">Clear all</button>
+        <div id="colorCont">
+            <input type="text" id="colorBox">
+        </div>
+    </div>
+    <script>
+        let colorBox = document.getElementById("colorBox");
+        let btn = document.getElementById("showColor");
+        let clearBtn = document.getElementById("clearBtn");
+        
+        let colorRed = document.getElementById("redBox");
+        let colorGreen = document.getElementById("greenBox");
+        let colorBlue = document.getElementById("blueBox");
+        
+        userInput1 = parseInt(colorRed);
+        userInput2 = parseInt(colorGreen);
+        userInput3 = parseInt(colorBlue);
+        
+        /* Show color button -- parsing
+        if(isNaN(userInput1) || isNaN(userInput2) || isNaN(userInput3)) {
+            alert("Please enter a number!");
+        }
+        else {
+            btn.addEventListener("click", clickHandler, false);
+        }
+        */
+        
+        // Show color button -- without parsing
+        btn.addEventListener("click", clickHandler, false);
+    
+
+        // Clear all button
+        clearBtn.addEventListener("click", clearAll, false);
+        
+        
+        function clickHandler() {
+            colorBox.style.backgroundColor = "rgb(" + userInput1.value + "," + userInput2.value + "," + userInput3.value + ")";
+            // colorBox.style.backgroundColor = "rgb(" + colorRed.value + "," + colorGreen.value + "," + colorBlue.value + ")";
+        }
+        
+        function clearAll() {
+            colorRed.value = "0";
+            colorBlue.value = "0";
+            colorGreen.value = "0";
+            colorBox.style.backgroundColor = "white";
+        }
+        
+        
+    </script>
+</body>
+</html>
